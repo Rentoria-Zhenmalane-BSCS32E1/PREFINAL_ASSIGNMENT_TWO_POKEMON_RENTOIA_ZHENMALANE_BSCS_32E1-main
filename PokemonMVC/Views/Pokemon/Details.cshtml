@@ -1,0 +1,26 @@
+﻿@model PokemonMVC.Models.Pokemon
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h1>@Model.Name</h1>
+
+<h2>Abilities</h2>
+<ul>
+    @foreach (var ability in Model.Abilities)
+    {
+        <li>@ability</li>
+    }
+</ul>
+
+<h2>Moves</h2>
+<ul>
+    @foreach (var move in Model.Moves)
+    {
+        <li>@move</li>
+    }
+</ul>
+
+<div>
+    <a href="@Url.Action("Index", "Pokemon")">Back to List</a>
+</div>

@@ -1,0 +1,25 @@
+﻿@model List<string>
+@{
+    ViewBag.Title = "Pokemon List";
+}
+
+<h1>Pokemon List</h1>
+
+<ul>
+    @foreach (var name in Model)
+    {
+        <li><a href="@Url.Action("Details", "Pokemon", new { name = name })" class="pokemon-link">@name</a></li>
+    }
+</ul>
+
+<div>
+    @if (ViewBag.HasPrevious)
+    {
+        <a href="@Url.Action("Index", "Pokemon", new { page = ViewBag.Page - 1 })">Previous</a>
+    }
+
+    @if (ViewBag.HasNext)
+    {
+        <a href="@Url.Action("Index", "Pokemon", new { page = ViewBag.Page + 1 })">Next</a>
+    }
+</div>
